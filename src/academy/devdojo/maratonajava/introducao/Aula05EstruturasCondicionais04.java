@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.introducao;
 
-public class Aula05EstruturasCondicionaisExercicio {
+public class Aula05EstruturasCondicionais04 {
     public static void main(String[] args) {
         //Exercicio decidindo quanto de taxa deve ser aplicado ao produto.
 
