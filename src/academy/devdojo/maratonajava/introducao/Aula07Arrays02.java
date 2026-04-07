@@ -8,11 +8,15 @@ public class Aula07Arrays02 {
             // boolean => false
             // String => null
 
-        char[] nomes = new char[3];
-        System.out.println(nomes[0]);
-        System.out.println(nomes[1]);
-        System.out.println(nomes[2]);
+        String[] nomes = new String[4];
+        nomes[0] = "Goku";
+        nomes[1] = "Naruto";
+        nomes[2] = "Luffy";
+        nomes[3] = "Sasuke";
 
-
+        // Usando loop para printar os valores
+        for (int i = 0; i < nomes.length; i++) { // Usamos length para dizer seu tamanho
+            System.out.println(nomes[i]);
+        }
     }
 }
