@@ -20,5 +20,14 @@ public class CarroTest01 {
         System.out.println("=> Nome: " + carro.nome + " |" + " Modelo: " + carro.modelo + " |" + " Ano: " + carro.ano);
         System.out.println("=> Nome: " + carro2.nome + " |" + " Modelo: " + carro2.modelo + " |" + " Ano: " + carro2.ano);
 
+        //Referência de Objetos:
+
+        carro = carro2;
+
+        System.out.println("================================ Lista de Carros com Referência de Objetos ================================");
+        System.out.println("=> Nome: " + carro.nome + " |" + " Modelo: " + carro.modelo + " |" + " Ano: " + carro.ano);
+        System.out.println("=> Nome: " + carro2.nome + " |" + " Modelo: " + carro2.modelo + " |" + " Ano: " + carro2.ano);
+
+
     }
 }
