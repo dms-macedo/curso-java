@@ -21,4 +21,21 @@ public class Calculadora {
 
         return num1/num2;
     }
+
+    public double divideDoisNumeros02(double num1, double num2){
+        if (num2 != 0) {
+            return num1/num2;
+        } else {
+            return 0;
+        }
+    }
+
+    //Usando return em métodos void
+    public void imprimeDivideDoisNumeros(double num1, double num2){
+        if(num2 == 0){
+            System.out.println("Não existe divisão por zero!");
+            return;
+        }
+        System.out.println(num1/num2);
+    }
 }
