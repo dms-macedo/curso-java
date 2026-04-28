@@ -14,5 +14,7 @@ public class FuncionarioTest01 {
 
         funcionario.imprimir();
         mediaSalario.media(funcionario);
+
     }
+
 }
