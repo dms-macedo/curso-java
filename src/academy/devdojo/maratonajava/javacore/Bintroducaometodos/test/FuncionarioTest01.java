@@ -8,9 +8,9 @@ public class FuncionarioTest01 {
         Funcionario funcionario = new Funcionario();
         MediaSalarios mediaSalario =  new MediaSalarios();
 
-        funcionario.nome = "Davi";
-        funcionario.idade = 18;
-        funcionario.salarios = new double[]{1515, 1800, 2100};
+        funcionario.setNome("Davi");
+        funcionario.setIdade(18);
+        funcionario.setSalarios(new double []{1512, 1800, 2590, 3400});
 
         funcionario.imprimir();
         mediaSalario.media(funcionario);
