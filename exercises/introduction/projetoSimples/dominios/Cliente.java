@@ -1,6 +1,7 @@
 package introduction.projetoSimples.dominios;
 
-import java.util.Objects;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Cliente {
     private String nickname;
@@ -38,5 +39,72 @@ public class Cliente {
             System.out.println("Código Promocional inválido. Adicionado valor normal atribuído.");
             this.saldo += valor;
         }
+    }
+
+    public void comprarJogo(Jogo jogo) {
+        if (jogo == null) {
+            System.out.println("ERRO: Jogo inválido.");
+            return;
+        }
+
+        if (this.saldo >= jogo.getPreco()) {
+            boolean adicionado = false;
+
+            for (int i = 0; i < this.biblioteca.length; i++) {
+                if (this.biblioteca[i] == jogo) {
+                    System.out.println("ERRO: O cliente já adquiriu esse jogo. Está disponível na biblioteca.");
+                    return;
+                }
+
+                if (this.biblioteca[i] == null) {
+                    this.saldo -= jogo.getPreco();
+                    this.biblioteca[i] = jogo;
+                    adicionado = true;
+                    System.out.println("=========================================================");
+                    System.out.println("Compra realizada com sucesso!");
+                    System.out.println("=> Jogo: " + jogo.getNome());
+                    System.out.println("=> Preço: " + jogo.getPreco());
+                    System.out.println("=========================================================");
+                    break;
+                }
+            }
+
+            if (!adicionado) {
+                System.out.println("ERRO: A biblioteca do cliente está cheia. (100 Jogos)");
+            }
+        } else {
+            System.out.println("ERRO: Saldo insuficiente.");
+        }
+    }
+
+    public void imprimirPerfil(){
+        System.out.println("=========================================================");
+        System.out.println("=> Nome: " +  this.nickname);
+
+        Locale localeBR = new Locale("pt", "BR");
+        NumberFormat formater = NumberFormat.getCurrencyInstance(localeBR);
+        String saldoFormatado = formater.format(this.saldo);
+        System.out.println("=> Saldo da Conta: " + saldoFormatado);
+
+        System.out.println("=> Biblioteca de Jogos: ");
+        for (int i = 0; i < this.biblioteca.length; i++) {
+            if (this.biblioteca[i] != null){
+                int posicao = i + 1;
+                System.out.println("    | Jogo " + posicao + ": " + this.biblioteca[i].getNome());
+            }
+        }
+        System.out.println("=========================================================");
+    }
+
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    public Jogo[] getBiblioteca() {
+        return this.biblioteca.clone();
     }
 }
