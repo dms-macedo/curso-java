@@ -5,10 +5,6 @@ public class BancoDeDados {
     private static Jogo[] jogos = new Jogo[50];
     private static Cliente[] clientes = new Cliente[10];
 
-    static {
-        System.out.println("Inicializando Servidores... \nConexão com Servidor estabelecida.\n================= Bem Vindo ao Space GameCenter! =================");
-    }
-
     public static void salvarDesenvolvedora(Desenvolvedora desenvolvedora){
         if (desenvolvedora == null){
             System.out.println("ERRO: Desenvolvedora inválida.");

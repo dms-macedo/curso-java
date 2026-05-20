@@ -24,6 +24,11 @@ public class Cliente {
         }
 
         this.saldo += valor;
+        Locale localeBR = new Locale("pt", "BR");
+        NumberFormat formatNumber = NumberFormat.getCurrencyInstance(localeBR);
+        String valorFormatado = formatNumber.format(valor);
+
+        System.out.println("Sucesso! " +  valor + " adicionado ao saldo do Cliente.");
     }
 
     public void adicionarSaldo(double valor, String codigoPromocional){
@@ -34,10 +39,23 @@ public class Cliente {
 
         String codigo = "SPACE2026";
         if(codigo.equals(codigoPromocional)){
-            this.saldo += valor + (valor * 0.20);
+            double valorPercent = valor + (valor * 0.20);
+            this.saldo += valorPercent;
+
+            Locale localeBR = new Locale("pt", "BR");
+            NumberFormat formatNumber = NumberFormat.getCurrencyInstance(localeBR);
+            String valorFormatado = formatNumber.format(valorPercent);
+
+            System.out.println("Sucesso! " +  valorFormatado + " adicionado ao saldo do Cliente.");
         } else {
             System.out.println("Código Promocional inválido. Adicionado valor normal atribuído.");
             this.saldo += valor;
+
+            Locale localeBR = new Locale("pt", "BR");
+            NumberFormat formatNumber = NumberFormat.getCurrencyInstance(localeBR);
+            String valorFormatado = formatNumber.format(valor);
+
+            System.out.println("Sucesso! " +  valor + " adicionado ao saldo do Cliente.");
         }
     }
 
