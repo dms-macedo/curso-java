@@ -37,7 +37,6 @@ public class Desenvolvedora {
             if (jogosProduzidos[i] == null) {
                 jogosProduzidos[i] = jogo;
                 adicionado = true;
-                System.out.println("Jogo Adicionado na posição: " + i);
                 break;
             }
         }
