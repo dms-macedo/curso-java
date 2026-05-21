@@ -184,6 +184,42 @@ public class Menu {
                     System.out.println("Retornando ao menu principal...");
                     esperar(2);
                 }
+            } else if (opcao == 5){
+                Jogo[] jogos = BancoDeDados.getJogos();
+
+                System.out.println("=> Jogos disponíveis para compra: ");
+                for (int i = 0; i < jogos.length; i++) {
+                    if (jogos[i] != null){
+                        System.out.println(">>> - Nome: " + jogos[i].getNome() + " | ID: " + jogos[i].getId() + " | Desenvolvedora: " + jogos[i].getDesenvolvedora().getNome());
+                    }
+                }
+
+                esperar(1);
+                System.out.print("\n=> Digite o nome ou ID do jogo desejado: ");
+                String jogoNomeID = sc.nextLine();
+
+                 Jogo jogo = null;
+                 try {
+                     int jogoID = Integer.parseInt(jogoNomeID);
+                     jogo = BancoDeDados.buscarJogoPorID(jogoID);
+                 } catch (NumberFormatException e){
+                     jogo = BancoDeDados.buscarJogoPorNome(jogoNomeID);
+                 }
+
+                 if (jogo == null){
+                     System.out.println("ERRO: " + jogoNomeID + " não encontrado no sistema, registree um novo jogo primeiro. (Opção 2)");
+                     esperar(2);
+                     continue;
+                 }
+
+                Cliente[] clientes = BancoDeDados.getClientes();
+                System.out.println("=> Clientes Disponíveis:");
+                for (int i = 0; i < clientes.length; i++) {
+                    if (clientes[i] != null){
+                        int posicao = i + 1;
+                        System.out.println("| " + posicao + " - " + jogos[i].getNome());
+                    }
+                }
             }
         }
     }

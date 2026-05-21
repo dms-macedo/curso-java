@@ -104,6 +104,15 @@ public class BancoDeDados {
         return null;
     }
 
+    public static Jogo buscarJogoPorID(int id){
+        for (int i = 0; i < BancoDeDados.jogos.length; i++) {
+            if (BancoDeDados.jogos[i] != null && BancoDeDados.jogos[i].getId() == id){
+                return BancoDeDados.jogos[i];
+            }
+        }
+
+        return null;
+    }
     public static Cliente buscarClientePorNome(String nome){
         for (int i = 0; i < BancoDeDados.clientes.length; i++) {
             if (BancoDeDados.clientes[i] != null && BancoDeDados.clientes[i].getNickname().equals(nome)){
