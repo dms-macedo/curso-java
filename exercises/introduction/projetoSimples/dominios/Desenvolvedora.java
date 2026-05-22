@@ -2,7 +2,7 @@ package introduction.projetoSimples.dominios;
 
 public class Desenvolvedora {
     private String nome;
-    private String nacionalidade;
+    private String nacionalidade = "Nacionalidade Desconhecida";
     private Jogo[] jogosProduzidos = new Jogo[50];
 
     public Desenvolvedora(String nome) {

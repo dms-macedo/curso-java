@@ -16,7 +16,7 @@ public class Jogo {
         posID++;
     }
 
-    public Jogo(String nome, double preco, Desenvolvedora desenvolvedora) {
+    public Jogo(String nome, double preco){
         if (nome == null || nome.trim().isEmpty()){
             System.out.println("ERRO: O nome não pode ser nulo ou estar vazio. Atribuindo valor padrão.");
             this.nome = "Jogo Desconhecido";
@@ -30,7 +30,10 @@ public class Jogo {
         } else {
             this.preco = preco;
         }
+    }
 
+    public Jogo(String nome, double preco, Desenvolvedora desenvolvedora) {
+        this(nome, preco);
         if (desenvolvedora == null){
             System.out.println("ERRO: A desenvolvedora não pode ser nula. Desenvolvedora padrão atribuída.");
             this.desenvolvedora = new Desenvolvedora("", "");
