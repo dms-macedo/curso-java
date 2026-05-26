@@ -12,8 +12,43 @@ public class MenuController {
     }
 
     public static void cadastrarDesenvolvedora(Scanner sc) {
-        System.out.print("\nDigite o nome da Desenvolvedora: ");
-        String nome = sc.nextLine();
+        String nome;
+
+        while (true) {
+            System.out.print("\nDigite o nome da Desenvolvedora: ");
+            esperar(1);
+            nome = sc.nextLine();
+
+            if (BancoDeDados.buscarDesenvolvedoraPorNome(nome) != null){
+                int opcao;
+
+                System.out.println("ERRO: Já existe uma desenvolvedora com o nome '" + nome + "' no sistema.\n=    | 1 - Tentar novamente.\n    | 2 - Cancelar e Sair.");
+                while (true) {
+                    System.out.print("=> Selecione uma opção: ");
+
+                    try {
+                        opcao = Integer.parseInt(sc.nextLine());
+                    } catch (NumberFormatException e) {
+                        System.out.println("ERRO: Opção Inválida. Digite apenas números.");
+                        esperar(2);
+                        continue;
+                    }
+
+                    if (opcao == 1){
+                        break;
+                    } else if (opcao == 2){
+                        System.out.println("Operação cancelada. Retornando ao menu principal...");
+                        esperar(2);
+                        return;
+                    } else {
+                        System.out.println("ERRO: Opção inválida.");
+                        esperar(1);
+                    }
+                }
+            } else {
+                break;
+            }
+        }
 
         while (true) {
             System.out.print("Deseja atribuir uma nacionalidade à Desenvolvedora? [SIM/NÃO]: ");
@@ -81,16 +116,56 @@ public class MenuController {
     }
 
     public static void cadastrarJogo(Scanner sc) {
-        System.out.print("\nDigite o nome do Jogo: ");
-        String nome = sc.nextLine();
+        String nome;
 
-        double preco = 0;
+        while (true) {
+            System.out.print("\nDigite o nome do Jogo: ");
+            esperar(1);
+            nome = sc.nextLine();
+
+            if (BancoDeDados.buscarJogoPorNome(nome) != null){
+                int opcao;
+                System.out.println("ERRO: Já existe um jogo com o nome '" + nome + "' no sistema.\n=    | 1 - Tentar novamente.\n    | 2 - Cancelar e Sair.");
+                while (true) {
+                    System.out.print("=> Selecione uma opção: ");
+                    try {
+                        opcao = Integer.parseInt(sc.nextLine());
+                    } catch (NumberFormatException e) {
+                        System.out.println("ERRO: Opção Inválida. Digite apenas números.");
+                        esperar(2);
+                        continue;
+                    }
+
+                    if (opcao == 1){
+                        break;
+                    } else if (opcao == 2){
+                        System.out.println("Operação cancelada. Retornando ao menu principal...");
+                        esperar(2);
+                        return;
+                    } else {
+                        System.out.println("ERRO: Opção inválida.");
+                        esperar(1);
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+
+        double preco;
         while (true) {
             System.out.print("Digite o preço do Jogo: ");
             String precoTexto = sc.nextLine().replace(",", ".");
 
             try {
                 preco = Double.parseDouble(precoTexto);
+
+                if (preco < 0) {
+                    System.out.println("ERRO: O preço do jogo não pode ser negativo.");
+                    esperar(1);
+                    continue;
+                }
+
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("ERRO: Digite apenas números.");
@@ -113,11 +188,12 @@ public class MenuController {
                 Jogo jogo = new Jogo(nome, preco, desenvolvedora);
                 BancoDeDados.salvarJogo(jogo);
                 esperar(2);
+                return;
             }
 
             while (true) {
-                int opcao = -1;
-                System.out.println("ERRO: A Desenvolvedora '" + nomeDev + "' não existe.\n  | 1 - Cadastrar nova Desenvolvedora (" + nomeDev + ");\n    | 2 - Tentar Novamente;\n   | 3 - Cancelar e Sair.");
+                int opcao;
+                System.out.println("ERRO: A Desenvolvedora '" + nomeDev + "' não existe.\n  | 1 - Cadastrar nova Desenvolvedora (" + nomeDev + ");\n    | 2 - Tentar Novamente;\n   | 3 - Salvar jogo sem desenvolvedora;\n  | 4 - Cancelar e Sair.");
                 System.out.print("=> Escolha uma opção: ");
 
                 try {
@@ -147,7 +223,13 @@ public class MenuController {
                 } else if (opcao == 2) {
                     esperar(1);
                     break;
-                } else if (opcao == 3){
+                } else if (opcao == 3) {
+                    System.out.println("Salvando jogo como Desenvolvedor Independente...");
+                    esperar(1);
+                    Jogo jogo = new Jogo(nome, preco);
+                    BancoDeDados.salvarJogo(jogo);
+                    return;
+                } else if (opcao == 4){
                     System.out.println("Operação Cancelada. Retornando ao menu principal...");
                     esperar(2);
                     return;
@@ -160,12 +242,46 @@ public class MenuController {
     }
 
     public static void cadastrarCliente(Scanner sc) {
-        System.out.print("\nDigite o nome do Cliente: ");
-        String nome = sc.nextLine();
+        String nome;
+
+        while (true) {
+            System.out.print("\nDigite o nome do Cliente: ");
+            esperar(1);
+            nome = sc.nextLine();
+
+            if (BancoDeDados.buscarClientePorNome(nome) != null){
+                int opcao;
+
+                System.out.println("ERRO: Já existe um cliente com o nome '" + nome + "' no sistema.\n=    | 1 - Tentar novamente.\n    | 2 - Cancelar e Sair.");
+                while (true) {
+                    System.out.print("=> Selecione uma opção: ");
+                    try {
+                        opcao = Integer.parseInt(sc.nextLine());
+                    } catch (NumberFormatException e) {
+                        System.out.println("ERRO: Opção Inválida. Digite apenas números.");
+                        esperar(2);
+                        continue;
+                    }
+
+                    if (opcao == 1){
+                        break;
+                    } else if (opcao == 2){
+                        System.out.println("Operação cancelada. Retornando ao menu principal...");
+                        esperar(2);
+                        return;
+                    } else {
+                        System.out.println("ERRO: Opção inválida.");
+                        esperar(1);
+                    }
+                }
+            } else {
+                break;
+            }
+        }
 
         System.out.println("\nRegistrando novo cliente na base de dados...");
         esperar(1.5);
-\
+
         Cliente cliente = new Cliente(nome);
         BancoDeDados.salvarCliente(cliente);
         esperar(2);
@@ -175,7 +291,7 @@ public class MenuController {
 
         System.out.println("\nRegistrando novo cliente na base de dados...");
         esperar(1.5);
-\
+
         Cliente cliente = new Cliente(nomePreDefinido);
         BancoDeDados.salvarCliente(cliente);
         esperar(2);
@@ -221,6 +337,7 @@ public class MenuController {
             }
         }
 
+        Cliente cliente;
         while (true){
             System.out.print("\n=> Digite o nome do cliente para depósito: ");
             String nome = sc.nextLine();
@@ -228,15 +345,16 @@ public class MenuController {
             System.out.println("\nBuscando registro do cliente...");
             esperar(1.5);
 
-            Cliente cliente = BancoDeDados.buscarClientePorNome(nome);
+            cliente = BancoDeDados.buscarClientePorNome(nome);
 
             if (cliente != null){
                 System.out.println("Cliente Encontrado.");
                 break;
             }
 
+            boolean breakPointExterno = false;
             while (true) {
-                int opcao = -1;
+                int opcao;
                 System.out.println("ERRO: Cliente '" + nome + "' não encontrado.\n  | 1 - Cadastrar novo Cliente (" + nome + ");\n    | 2 - Tentar Novamente;\n   | 3 - Cancelar e Sair.");
                 System.out.print("=> Escolha uma opção: ");
 
@@ -257,6 +375,9 @@ public class MenuController {
                         esperar(2);
                         return;
                     }
+
+                    breakPointExterno = true;
+                    break;
                 } else if (opcao == 2) {
                     esperar(1);
                     break;
@@ -269,15 +390,26 @@ public class MenuController {
                     esperar(2);
                 }
             }
+
+            if (breakPointExterno){
+                break;
+            }
         }
 
-        double valor = 0;
+        double valor;
         while (true) {
             System.out.print("Digite o valor a ser adicionado: ");
             String valorTexto = sc.nextLine().replace(",", ".");
 
             try {
                 valor = Double.parseDouble(valorTexto);
+
+                 if (valor < 0){
+                     System.out.println("ERRO: O valor não pode ser negativo.");
+                     esperar(1);
+                     continue;
+                 }
+
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("ERRO: Digite apenas números.");

@@ -1,15 +1,10 @@
 package introduction.projetoSimples.main;
 
-import introduction.projetoSimples.dominios.BancoDeDados;
-import introduction.projetoSimples.dominios.Cliente;
-import introduction.projetoSimples.dominios.Desenvolvedora;
-import introduction.projetoSimples.dominios.Jogo;
+import introduction.projetoSimples.dominios.*;
 
 import java.util.Scanner;
 
 public class Menu {
-
-
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -32,26 +27,26 @@ public class Menu {
                 opcao = Integer.parseInt(sc.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("ERRO: Opção Inválida. Digite apenas números.");
-                esperar(2);
+                MenuController.esperar(2);
                 continue;
             }
 
             if (opcao == 8) {
                 System.out.println("\nEncerrando conexão com o Banco de Dados...");
-                esperar(1.5);
+                MenuController.esperar(1.5);
                 System.out.println("Servidores do Space Game Center desligados. Até logo!");
-                esperar(1);
+                MenuController.esperar(1);
                 break;
             }
 
             if (opcao == 1) {
-                cadastrarDesenvolvedora(sc);
+                MenuController.cadastrarDesenvolvedora(sc);
             } else if (opcao == 2) {
-                cadastrarJogo(sc);
+                MenuController.cadastrarJogo(sc);
             } else if (opcao == 3) {
-                cadastrarCliente(sc);
+                MenuController.cadastrarCliente(sc);
             } else if (opcao == 4) {
-                adicionarSaldoCliente(sc);
+                MenuController.adicionarSaldoCliente(sc);
             } else if (opcao == 5) {
                 System.out.println("\n=> Clientes Disponíveis:\n");
                 Cliente[] clientes = BancoDeDados.getClientes();
