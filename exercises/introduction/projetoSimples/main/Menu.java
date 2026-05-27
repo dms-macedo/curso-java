@@ -48,90 +48,9 @@ public class Menu {
             } else if (opcao == 4) {
                 MenuController.adicionarSaldoCliente(sc);
             } else if (opcao == 5) {
-                System.out.println("\n=> Clientes Disponíveis:\n");
-                Cliente[] clientes = BancoDeDados.getClientes();
-                for (int i = 0; i < clientes.length; i++) {
-                    if (clientes[i] != null) {
-                        System.out.println("| " + (i + 1) + " - " + clientes[i].getNickname());
-                    }
-                }
-
-                System.out.print("\n=> Digite o nome do Cliente que deseja fazer a compra: ");
-                String nomeCliente = sc.nextLine();
-
-                System.out.println("\nVerificando credenciais do cliente...");
-                esperar(1.5);
-
-                Cliente cliente = BancoDeDados.buscarClientePorNome(nomeCliente);
-
-                if (cliente == null) {
-                    System.out.println("ERRO: '" + nomeCliente + "' não encontrado no sistema. Cadastre um cliente primeiro (Opção 3).");
-                    esperar(3);
-                continue;
-            }
-
-            System.out.println("\n=> Jogos disponíveis para compra:\n");
-            Jogo[] jogos = BancoDeDados.getJogos();
-            for (Jogo jogo : jogos) {
-                if (jogo != null) {
-                    System.out.println("=> Nome: " + jogo.getNome() + " | ID: " + jogo.getId() + " | Desenvolvedora: " + jogo.getDesenvolvedora().getNome());
-                }
-            }
-
-            System.out.print("\n=> Digite o NOME ou ID do jogo desejado: ");
-            String jogoNomeID = sc.nextLine();
-
-            System.out.println("\nConsultando catálogo de jogos...");
-                esperar(1.5);
-
-                Jogo jogo;
-                try {
-                    int jogoID = Integer.parseInt(jogoNomeID);
-                    jogo = BancoDeDados.buscarJogoPorID(jogoID);
-                } catch (NumberFormatException e) {
-                    jogo = BancoDeDados.buscarJogoPorNome(jogoNomeID);
-                }
-
-                if (jogo == null) {
-                    System.out.println("ERRO: '" + jogoNomeID + "' não encontrado no sistema. Registre um novo jogo primeiro (Opção 2).");
-                    esperar(3);
-                    continue;
-                }
-
-                System.out.println("Conectando ao gateway de pagamento...");
-                esperar(2);
-                cliente.comprarJogo(jogo);
-                System.out.println("Retornando ao menu principal...");
-                esperar(2.5);
+                MenuController.comprarJogo(sc);
             } else if (opcao == 6) {
-                System.out.println("\nSincronizando com o Banco de Dados...\n");
-                esperar(1.5);
-
-                System.out.println("=> Jogos no sistema:\n");
-                Jogo[] jogos = BancoDeDados.getJogos();
-
-                System.out.println("+---------------------------+--------+---------------+---------------------------+");
-                System.out.printf("| %-25s | %-6s | %-13s | %-25s |\n", "NOME DO JOGO", "ID", "PREÇO", "DESENVOLVEDORA");
-                System.out.println("+---------------------------+--------+---------------+---------------------------+");
-
-                for (Jogo jogo : jogos) {
-                    if (jogo != null) {
-                        System.out.printf("| %-25s | %-6d | R$ %-10.2f | %-25s |\n",
-                                jogo.getNome(),
-                                jogo.getId(),
-                                jogo.getPreco(),
-                                jogo.getDesenvolvedora().getNome());
-                    }
-                }
-                System.out.println("+---------------------------+--------+---------------+---------------------------+");
-                esperar(5);
-            } else if (opcao == 7) {
-                // Seu terreno para brilhar e terminar o código!
-                System.out.println("\nImplementação em progresso...");
-                esperar(2);
-            } else {
-                System.out.println("\nERRO: Opção inválida ou ainda não implementada.");
-                esperar(2);
+                MenuController.listarJogos();
             }
         }
 

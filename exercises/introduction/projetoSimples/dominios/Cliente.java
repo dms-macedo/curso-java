@@ -28,7 +28,7 @@ public class Cliente {
         NumberFormat formatNumber = NumberFormat.getCurrencyInstance(localeBR);
         String valorFormatado = formatNumber.format(valor);
 
-        System.out.println("Sucesso! " +  valor + " adicionado ao saldo do Cliente.");
+        System.out.println("Sucesso! " +  valorFormatado + " adicionado ao saldo do Cliente.");
     }
 
     public void adicionarSaldo(double valor, String codigoPromocional){
@@ -55,7 +55,7 @@ public class Cliente {
             NumberFormat formatNumber = NumberFormat.getCurrencyInstance(localeBR);
             String valorFormatado = formatNumber.format(valor);
 
-            System.out.println("Sucesso! " +  valor + " adicionado ao saldo do Cliente.");
+            System.out.println("Sucesso! " +  valorFormatado + " adicionado ao saldo do Cliente.");
         }
     }
 
