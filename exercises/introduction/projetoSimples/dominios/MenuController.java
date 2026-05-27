@@ -19,7 +19,7 @@ public class MenuController {
             esperar(1);
             nome = sc.nextLine();
 
-            if (BancoDeDados.buscarDesenvolvedoraPorNome(nome) != null){
+            if (BancoDeDados.buscarDesenvolvedoraPorNome(nome) != null) {
                 int opcao;
 
                 System.out.println("ERRO: Já existe uma desenvolvedora com o nome '" + nome + "' no sistema.\n=    | 1 - Tentar novamente.\n    | 2 - Cancelar e Sair.");
@@ -34,9 +34,9 @@ public class MenuController {
                         continue;
                     }
 
-                    if (opcao == 1){
+                    if (opcao == 1) {
                         break;
-                    } else if (opcao == 2){
+                    } else if (opcao == 2) {
                         System.out.println("Operação cancelada. Retornando ao menu principal...");
                         esperar(2);
                         return;
@@ -123,7 +123,7 @@ public class MenuController {
             esperar(1);
             nome = sc.nextLine();
 
-            if (BancoDeDados.buscarJogoPorNome(nome) != null){
+            if (BancoDeDados.buscarJogoPorNome(nome) != null) {
                 int opcao;
                 System.out.println("ERRO: Já existe um jogo com o nome '" + nome + "' no sistema.\n=    | 1 - Tentar novamente.\n    | 2 - Cancelar e Sair.");
                 while (true) {
@@ -136,9 +136,9 @@ public class MenuController {
                         continue;
                     }
 
-                    if (opcao == 1){
+                    if (opcao == 1) {
                         break;
-                    } else if (opcao == 2){
+                    } else if (opcao == 2) {
                         System.out.println("Operação cancelada. Retornando ao menu principal...");
                         esperar(2);
                         return;
@@ -229,7 +229,7 @@ public class MenuController {
                     Jogo jogo = new Jogo(nome, preco);
                     BancoDeDados.salvarJogo(jogo);
                     return;
-                } else if (opcao == 4){
+                } else if (opcao == 4) {
                     System.out.println("Operação Cancelada. Retornando ao menu principal...");
                     esperar(2);
                     return;
@@ -249,7 +249,7 @@ public class MenuController {
             esperar(1);
             nome = sc.nextLine();
 
-            if (BancoDeDados.buscarClientePorNome(nome) != null){
+            if (BancoDeDados.buscarClientePorNome(nome) != null) {
                 int opcao;
 
                 System.out.println("ERRO: Já existe um cliente com o nome '" + nome + "' no sistema.\n=    | 1 - Tentar novamente.\n    | 2 - Cancelar e Sair.");
@@ -263,9 +263,9 @@ public class MenuController {
                         continue;
                     }
 
-                    if (opcao == 1){
+                    if (opcao == 1) {
                         break;
-                    } else if (opcao == 2){
+                    } else if (opcao == 2) {
                         System.out.println("Operação cancelada. Retornando ao menu principal...");
                         esperar(2);
                         return;
@@ -347,7 +347,7 @@ public class MenuController {
         }
 
         Cliente cliente;
-        while (true){
+        while (true) {
             System.out.print("\n=> Digite o nome do cliente para depósito: ");
             String nome = sc.nextLine();
 
@@ -356,7 +356,7 @@ public class MenuController {
 
             cliente = BancoDeDados.buscarClientePorNome(nome);
 
-            if (cliente != null){
+            if (cliente != null) {
                 System.out.println("Cliente Encontrado.");
                 break;
             }
@@ -390,7 +390,7 @@ public class MenuController {
                 } else if (opcao == 2) {
                     esperar(1);
                     break;
-                } else if (opcao == 3){
+                } else if (opcao == 3) {
                     System.out.println("Operação Cancelada. Retornando ao menu principal...");
                     esperar(2);
                     return;
@@ -400,7 +400,7 @@ public class MenuController {
                 }
             }
 
-            if (breakPointExterno){
+            if (breakPointExterno) {
                 break;
             }
         }
@@ -413,11 +413,11 @@ public class MenuController {
             try {
                 valor = Double.parseDouble(valorTexto);
 
-                 if (valor < 0){
-                     System.out.println("ERRO: O valor não pode ser negativo.");
-                     esperar(1);
-                     continue;
-                 }
+                if (valor < 0) {
+                    System.out.println("ERRO: O valor não pode ser negativo.");
+                    esperar(1);
+                    continue;
+                }
 
                 break;
             } catch (NumberFormatException e) {
@@ -455,7 +455,7 @@ public class MenuController {
         }
     }
 
-    public static void comprarJogo(Scanner sc){
+    public static void comprarJogo(Scanner sc) {
         Cliente[] clientes = BancoDeDados.getClientes();
         boolean ifCliente = false;
 
@@ -494,6 +494,7 @@ public class MenuController {
                     esperar(2);
                 }
             }
+        }
 
         System.out.println("\n=> Clientes Disponíveis:\n");
         for (int i = 0; i < clientes.length; i++) {
@@ -502,18 +503,19 @@ public class MenuController {
             }
         }
 
-        while (true){
+        Cliente cliente;
+        while (true) {
             System.out.print("\n=> Digite o nome do Cliente que deseja fazer a compra: ");
             String nomeCliente = sc.nextLine();
 
             System.out.println("\nVerificando credenciais do cliente...");
             esperar(1.5);
 
-            Cliente cliente = BancoDeDados.buscarClientePorNome(nomeCliente);
+            cliente = BancoDeDados.buscarClientePorNome(nomeCliente);
 
             boolean breakPoint = false;
             if (cliente == null) {
-                while (true){
+                while (true) {
                     System.out.println("ERRO: '" + nomeCliente + "' não encontrado no sistema.\n    | 1 - Cadastrar Cliente (" + nomeCliente + ");\n   | 2 - Tentar novamente; \n   | 3 - Cancelar e Sair.");
                     System.out.print("=> Selecione uma opção: ");
 
@@ -526,16 +528,24 @@ public class MenuController {
                         continue;
                     }
 
-                    if (opcaoCliente == 1){
-                        cadastrarCliente(sc);
-                        System.out.println("Cliente cadastrado!\n");
+                    if (opcaoCliente == 1) {
+                        cadastrarCliente(nomeCliente);
+                        cliente = BancoDeDados.buscarClientePorNome(nomeCliente);
+
+                        if (cliente == null) {
+                            System.out.println("ERRO CRÍTICO: Falha ao carregar cliente. O Banco pode estar cheio.");
+                            esperar(2);
+                            return;
+                        }
+
                         clientes = BancoDeDados.getClientes();
+                        System.out.println("Cliente cadastrado!\n");
                         breakPoint = true;
                         break;
-                    } else if (opcaoCliente == 2){
+                    } else if (opcaoCliente == 2) {
                         esperar(2);
                         break;
-                    } else if (opcaoCliente == 3){
+                    } else if (opcaoCliente == 3) {
                         System.out.println("Operação cancelada. Retornando ao menu principal...");
                         esperar(2);
                         return;
@@ -547,37 +557,76 @@ public class MenuController {
                 }
             }
 
-            if (breakPoint){
+            if (breakPoint) {
                 break;
             }
         }
 
-        System.out.println("\n=> Jogos disponíveis para compra:\n");
         Jogo[] jogos = BancoDeDados.getJogos();
+
+        boolean ifJogos = false;
+
+        for (Jogo jogo : jogos) {
+            if (jogo != null) {
+                ifJogos = true;
+                break;
+            }
+        }
+
+        if (!ifJogos) {
+            System.out.println("ERRO: Nenhum jogo cadastrado. Se for desenvolvedor, registre um novo jogo (Opção 2), caso contrário espere até o Banco de Dados de jogos for atualizado com novos jogos.");
+            esperar(2);
+            return;
+        }
+
+        System.out.println("\n=> Jogos disponíveis para compra:\n");
+
         for (Jogo jogo : jogos) {
             if (jogo != null) {
                 System.out.println("=> Nome: " + jogo.getNome() + " | ID: " + jogo.getId() + " | Desenvolvedora: " + jogo.getDesenvolvedora().getNome());
             }
         }
 
-        System.out.print("\n=> Digite o NOME ou ID do jogo desejado: ");
-        String jogoNomeID = sc.nextLine();
-
-        System.out.println("\nConsultando catálogo de jogos...");
-        esperar(1.5);
-
         Jogo jogo;
-        try {
-            int jogoID = Integer.parseInt(jogoNomeID);
-            jogo = BancoDeDados.buscarJogoPorID(jogoID);
-        } catch (NumberFormatException e) {
-            jogo = BancoDeDados.buscarJogoPorNome(jogoNomeID);
-        }
+        while (true) {
+            System.out.print("\n=> Digite o NOME ou ID do jogo desejado: ");
+            String jogoNomeID = sc.nextLine();
 
-        if (jogo == null) {
-            System.out.println("ERRO: '" + jogoNomeID + "' não encontrado no sistema. Registre um novo jogo primeiro (Opção 2).");
-            esperar(3);
-            continue;
+            System.out.println("\nConsultando catálogo de jogos...");
+            esperar(1.5);
+
+            try {
+                int jogoID = Integer.parseInt(jogoNomeID);
+                jogo = BancoDeDados.buscarJogoPorID(jogoID);
+            } catch (NumberFormatException e) {
+                jogo = BancoDeDados.buscarJogoPorNome(jogoNomeID);
+            }
+
+            if (jogo == null) {
+                System.out.println("ERRO: '" + jogoNomeID + "' não encontrado no sistema.\n    | 1 - Tentar Novamente;\n    | 2 - Cancelar e Sair.");
+                System.out.print("=> Digite uma opção: ");
+
+                int opcaoCliente;
+                try {
+                    opcaoCliente = Integer.parseInt(sc.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("ERRO: Digite apenas números.");
+                    esperar(1);
+                    continue;
+                }
+
+                if (opcaoCliente == 1) {
+                    esperar(1);
+                } else if (opcaoCliente == 2) {
+                    System.out.println("Operação Cancelada. Retornando ao menu principal...");
+                    esperar(2);
+                    return;
+                } else {
+                    System.out.println("ERRO: Opção inválida.");
+                }
+            } else {
+                break;
+            }
         }
 
         System.out.println("Conectando ao gateway de pagamento...");
