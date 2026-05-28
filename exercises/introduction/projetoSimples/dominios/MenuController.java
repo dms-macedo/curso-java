@@ -527,7 +527,7 @@ public class MenuController {
                         int opcaoSaldo;
                         try {
                             opcaoSaldo = Integer.parseInt(sc.nextLine());
-                        } catch (NumberFormatException e){
+                        } catch (NumberFormatException e) {
                             System.out.println("ERRO: Digite apenas números.");
                             esperar(1);
                             continue;
@@ -796,5 +796,85 @@ public class MenuController {
         System.out.println("+---------------------------+--------+---------------+---------------------------+");
         System.out.println("Pressione ENTER para voltar ao Menu Principal...");
         new Scanner(System.in).nextLine();
+    }
+
+    public static void PerfilCliente(Scanner sc) {
+        Cliente[] clientes = BancoDeDados.getClientes();
+
+        boolean ifCliente = false;
+        for (Cliente cliente : clientes) {
+            if (cliente != null) {
+                ifCliente = true;
+                break;
+            }
+        }
+
+        if (!ifCliente) {
+            System.out.println("ERRO: Não há clientes no sistema. Por motivos de segurança, cadastre um novo cliente na Opção 3.");
+            esperar(2);
+            return;
+        }
+
+        System.out.println("\n=> Clientes Disponíveis:\n");
+        System.out.println("+------+--------------------------------+");
+        System.out.printf("| %-4s | %-30s |\n", "ID", "NOME DO CLIENTE");
+        System.out.println("+------+--------------------------------+");
+        for (int i = 0; i < clientes.length; i++) {
+            if (clientes[i] != null) {
+                System.out.printf("| %-4d | %-30s |\n", (i + 1), clientes[i].getNickname());
+            }
+        }
+        System.out.println("+------+--------------------------------+\n");
+
+        Cliente cliente = null;
+        while (true) {
+            System.out.print("=> Digite o NOME ou ID do Cliente que deseja ver o perfil: ");
+            String inputBusca = sc.nextLine();
+
+            System.out.println("\nBuscando registro do cliente...");
+            esperar(1);
+
+            try {
+                int numero = Integer.parseInt(inputBusca);
+                int index = numero - 1;
+                if (index >= 0 && index < clientes.length && clientes[index] != null) {
+                    cliente = clientes[index];
+                }
+            } catch (NumberFormatException e) {
+                cliente = BancoDeDados.buscarClientePorNome(inputBusca);
+            }
+
+            if (cliente != null) {
+                System.out.println("Cliente encontrado.");
+                break;
+            }
+
+            System.out.println("ERRO: Cliente não encontrado no sistema.\n  | 1 - Tentar novamente;\n  | 2 - Cancelar e sair");
+
+            int opcaoBusca;
+            try{
+                opcaoBusca = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("ERRO: Digite apenas números.");
+                esperar(1);
+                continue;
+            }
+
+            if (opcaoBusca == 1){
+                esperar(1);
+            } else if (opcaoBusca == 2){
+                System.out.println("Operação cancelada. Retornando ao menu principal...");
+                esperar(2);
+                return;
+            } else {
+                System.out.println("ERRO: Opção inválida.");
+                esperar(1);
+            }
+        }
+
+        System.out.println();
+        cliente.imprimirPerfil();
+        System.out.println("\nPressione ENTER para voltar ao Menu Principal...");
+        sc.nextLine();
     }
 }
