@@ -11,7 +11,7 @@ public class AssociacaoTeste {
         Aluno aluno = new Aluno("Luffy", 17);
         Aluno[] alunos = {};
         Professor professor = new Professor("Barba Branca", "pirata");
-        Seminario seminario = new Seminario("Onde achar o One Piece", alunos, local);
+        Seminario seminario = new Seminario("Onde achar o One Piece", local, alunos);
 
         Seminario[] seminarios = {seminario};
         professor.setSeminarios(seminarios);
