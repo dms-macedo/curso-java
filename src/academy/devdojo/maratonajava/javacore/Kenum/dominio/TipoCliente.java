@@ -11,4 +11,15 @@ public enum TipoCliente {
         this.VALOR = valor;
         this.NOME = nome;
     }
+
+    public static TipoCliente tipoClientePorNome(String nomeRelatorio){
+        for (TipoCliente tipoCliente : values()) {
+           if (tipoCliente.NOME.equals(nomeRelatorio)){
+               return tipoCliente;
+           }
+        }
+
+        return null;
+
+    }
 }
