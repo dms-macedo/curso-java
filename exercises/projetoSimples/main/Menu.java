@@ -1,6 +1,7 @@
-package introduction.projetoSimples.main;
+package projetoSimples.main;
 
-import introduction.projetoSimples.dominios.*;
+import projetoSimples.dominios.*;
+import projetoSimples.dominios.MenuController;
 
 import java.util.Scanner;
 

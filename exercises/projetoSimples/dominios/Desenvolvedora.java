@@ -1,4 +1,4 @@
-package introduction.projetoSimples.dominios;
+package projetoSimples.dominios;
 
 public class Desenvolvedora {
     private String nome;

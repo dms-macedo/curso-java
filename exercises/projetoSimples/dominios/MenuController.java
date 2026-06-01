@@ -1,4 +1,4 @@
-package introduction.projetoSimples.dominios;
+package projetoSimples.dominios;
 
 import java.util.Scanner;
 

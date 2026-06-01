@@ -1,4 +1,4 @@
-package introduction.projetoSimples.dominios;
+package projetoSimples.dominios;
 
 import java.text.NumberFormat;
 import java.util.Locale;

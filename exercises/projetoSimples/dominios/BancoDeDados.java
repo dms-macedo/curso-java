@@ -1,4 +1,4 @@
-package introduction.projetoSimples.dominios;
+package projetoSimples.dominios;
 
 public class BancoDeDados {
     private static Desenvolvedora[] desenvolvedoras = new Desenvolvedora[10];
