@@ -5,10 +5,16 @@ import academy.devdojo.maratonajava.javacore.Minterfaces.dominio.FileLoader;
 
 public class DataLoaderTest01 {
     public static void main(String[] args) {
-        DataBaseLoader databaseLoader = new DataBaseLoader();
+        DataBaseLoader dataBaseLoader = new DataBaseLoader();
         FileLoader fileLoader = new FileLoader();
 
-        databaseLoader.load();
+        dataBaseLoader.load();
         fileLoader.load();
+
+        dataBaseLoader.remove();
+        fileLoader.remove();
+
+        dataBaseLoader.checkPermission();
+        fileLoader.checkPermission();
     }
 }
