@@ -9,4 +9,6 @@ public class RepositorioTeste {
         Repositorio repositorio = new RepositorioArquivo();
         repositorio.salvar();
     }
+
+    //Fim da Orientação a Objetos
 }
