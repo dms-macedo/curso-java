@@ -5,6 +5,6 @@ import academy.devdojo.maratonajava.javacore.Npolimorfismo.repositorio.Repositor
 public class RepositorioBancoDeDados implements Repositorio {
     @Override
     public void salvar() {
-        System.out.println("Salvando no banco de Dados.");
+        System.out.println("Salvando no banco de Dados");
     }
 }
