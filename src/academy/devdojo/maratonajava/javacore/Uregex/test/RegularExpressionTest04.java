@@ -20,12 +20,14 @@ public class RegularExpressionTest04 {
             () = agrupamento
             | = OU
             $ = fim da linha
+            . = Coringa
          */
-        String regex = "0[xX][0-9a-fA-F]+(\\s|$)";
-        String texto1 = "12 0x 0X 0xFFABC 0x10G 0x1";
-
+        String regex = "([0-9a-zA-Z\\._-])+@([a-zA-Z])+(\\.([a-zA-Z])+)+";
+        String texto1 = "macedodavi27@icloud.com, jotaro.123@gmail.com, #@@$#$#davimacedo@icddd.coq, ";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto1);
+
+        System.out.println("Email: davimacedo@icddd.coq é válido? " + "davimacedo@icddd.coq".matches(regex));
 
         System.out.println("texto:                                      " + texto1);
         System.out.println("índice:                                     0123456789");
