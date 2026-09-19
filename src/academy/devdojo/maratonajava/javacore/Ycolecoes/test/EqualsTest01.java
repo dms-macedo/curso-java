@@ -7,6 +7,6 @@ public class EqualsTest01 {
         SmartPhone s1 = new SmartPhone("1k1k1k1", "Iphone");
         SmartPhone s2 = new SmartPhone("1k1k1k1", "Pixel");
 
-        System.out.println(s1.equals(s2));
+        System.out.println(s1.equals(s2)); // hashcode parte 1 - registro
     }
 }
