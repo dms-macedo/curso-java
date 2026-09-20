@@ -47,4 +47,5 @@ public class SmartPhone {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+    // Complexidade Big-O registro
 }
