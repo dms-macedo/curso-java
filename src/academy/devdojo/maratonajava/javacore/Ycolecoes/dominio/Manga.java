@@ -69,12 +69,15 @@ public class Manga implements Comparable<Manga>{
         // return this.id.compareTo(outroManga.getId()); < - forma automatizada
 
         // forma manual
-        if (this.id < outroManga.getId()){
-            return -1;
-        } else if (this.id.equals(outroManga.getId())){
-            return 0;
-        } else {
-            return 1;
-        }
+//        if (this.id < outroManga.getId()){
+//            return -1;
+//        } else if (this.id.equals(outroManga.getId())){
+//            return 0;
+//        } else {
+//            return 1;
+//        }
+
+        //por ordem alfabética = String
+        return this.nome.compareTo(outroManga.getNome());
     }
 }
