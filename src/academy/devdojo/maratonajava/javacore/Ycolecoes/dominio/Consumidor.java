@@ -3,7 +3,7 @@ package academy.devdojo.maratonajava.javacore.Ycolecoes.dominio;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Consumidor {
+public class Consumidor{
     private Long id;
     private String nome;
 
