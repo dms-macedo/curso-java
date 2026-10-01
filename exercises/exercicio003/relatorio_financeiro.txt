@@ -1,0 +1,29 @@
+============= RELATÓRIO DE TRANSAÇÕES AUDIDATAS =============
+
+> CATEGORIA: ELETRONICOS: 
+ - [TX-1005] Valor: R$ 1.200,00 | Data: 01/10/2026 - 15:45 | Conta: 4532xxxx9900
+ - [TX-1014] Valor: R$ 3.100,00 | Data: 01/10/2026 - 20:30 | Conta: 4532xxxx7755
+ - [TX-1002] Valor: R$ 4.500,00 | Data: 01/10/2026 - 11:30 | Conta: 4532xxxx3344
+
+> CATEGORIA: SAUDE: 
+ - [TX-1016] Valor: R$ 480,00 | Data: 01/10/2026 - 21:15 | Conta: 4532xxxx9977
+ - [TX-1009] Valor: R$ 1.500,00 | Data: 01/10/2026 - 18:00 | Conta: 4532xxxx9922
+
+> CATEGORIA: TRANSPORTE: 
+ - [TX-1017] Valor: R$ 15,50 | Data: 01/10/2026 - 21:30 | Conta: 4532xxxx1188
+ - [TX-1007] Valor: R$ 45,00 | Data: 01/10/2026 - 17:00 | Conta: 4532xxxx5678
+ - [TX-1003] Valor: R$ 120,50 | Data: 01/10/2026 - 12:00 | Conta: 4532xxxx5566
+
+> CATEGORIA: LAZER: 
+ - [TX-1015] Valor: R$ 150,00 | Data: 01/10/2026 - 21:00 | Conta: 4532xxxx8866
+ - [TX-1010] Valor: R$ 350,00 | Data: 01/10/2026 - 18:30 | Conta: 4532xxxx3311
+ - [TX-1018] Valor: R$ 620,00 | Data: 01/10/2026 - 22:15 | Conta: 4532xxxx2299
+ - [TX-1013] Valor: R$ 890,00 | Data: 01/10/2026 - 20:00 | Conta: 4532xxxx6644
+
+> CATEGORIA: ALIMENTACAO: 
+ - [TX-1008] Valor: R$ 0,00 | Data: 01/10/2026 - 17:30 | Conta: 4532xxxx8811
+ - [TX-1011] Valor: R$ 75,00 | Data: 01/10/2026 - 19:00 | Conta: 4532xxxx4422
+ - [TX-1004] Valor: R$ 89,90 | Data: 01/10/2026 - 14:20 | Conta: 4532xxxx7788
+ - [TX-1019] Valor: R$ 180,00 | Data: 01/10/2026 - 22:30 | Conta: 4532xxxx3300
+ - [TX-1001] Valor: R$ 250,00 | Data: 01/10/2026 - 10:15 | Conta: 4532xxxx1122
+
